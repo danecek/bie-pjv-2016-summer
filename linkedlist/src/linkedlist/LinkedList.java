@@ -9,20 +9,40 @@ package linkedlist;
  *
  * @author danecek
  */
-public class LinkedList {
+public class LinkedList {  // unmodifiable list
 
-    private Node head;
+    private final Node head;
 
-    public void add(int newValue) {
-        head = new Node(newValue, getHead());
+    public LinkedList() {
+        head = null;
     }
-    
-    public LinkedList createByAppend(LinkedList app) {
-        
+
+    private LinkedList(Node head) {
+        this.head = head;
     }
-    
-    public void updateByAppend(LinkedList app) {
-        
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public LinkedList add(int newValue) {
+        return new LinkedList(new Node(newValue, head));
+    }
+
+    public LinkedList tail() {
+        if (isEmpty()) {
+            throw new IllegalStateException("empty list");
+        }
+        return new LinkedList(head.getNextNode());
+    }
+
+    public LinkedList append(LinkedList appending) {
+        if (isEmpty()) {
+            return appending;
+        } else {
+            return tail().append(appending).add(head.getValue());
+        }
+
     }
 
     public int size() {
@@ -31,7 +51,6 @@ public class LinkedList {
             counter++;
         }
         return counter;
-
     }
 
     public Node getHead() {

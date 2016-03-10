@@ -12,12 +12,9 @@ package linkedlist;
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        System.out.println(ll);
-        ll.add(1);
-        System.out.println(ll);
-        ll.add(3);
-        System.out.println(ll);
+        LinkedList ll1 = new LinkedList().add(1).add(2).add(8);
+        LinkedList ll2 = new LinkedList().add(3).add(4);
+        System.out.printf("%s + %s = %s\n", ll1, ll2,  ll1.append(ll2));
     }
 
 }
