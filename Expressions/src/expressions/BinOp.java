@@ -15,6 +15,10 @@ public abstract class BinOp extends Expr {
     Expr right;
     char op;
     
+    String enclose(String s) {
+        return "(" + s + ")";
+    }
+    
     public BinOp(int priority, char op, Expr left, Expr right) {
         super(priority);
         this.left = left;
