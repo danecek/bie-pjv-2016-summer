@@ -5,14 +5,14 @@
  */
 package expressions;
 
-public abstract class Expr {
+/**
+ *
+ * @author danecek
+ */
+public class UndefinedValueException extends Exception {
 
-    abstract int eval() throws UndefinedValueException;
-    int priority;
-
-    public Expr(int priority) {
-        this.priority = priority;
+    public UndefinedValueException(Var v) {
+        super(v + " is undefined");
     }
-    
 
 }

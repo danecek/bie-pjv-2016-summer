@@ -12,7 +12,7 @@ public class MltOp extends BinOp {
     }
 
     @Override
-    int eval() {
+    int eval() throws UndefinedValueException {
         switch (op) {
             case '*':
                 return left.eval() * right.eval();
