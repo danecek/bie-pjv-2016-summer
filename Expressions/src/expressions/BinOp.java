@@ -14,11 +14,11 @@ public abstract class BinOp extends Expr {
     Expr left;
     Expr right;
     char op;
-    
+
     String enclose(String s) {
         return "(" + s + ")";
     }
-    
+
     public BinOp(int priority, char op, Expr left, Expr right) {
         super(priority);
         this.left = left;
@@ -28,7 +28,7 @@ public abstract class BinOp extends Expr {
 
     @Override
     public String toString() {
-        return "(" + left.toString() + op + right.toString() +")";
+        return "(" + left.toString() + op + right.toString() + ")";
     }
 
 }

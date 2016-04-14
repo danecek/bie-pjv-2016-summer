@@ -9,18 +9,19 @@ package expressions;
  *
  * @author danecek
  */
-public class Loop extends Expr {
+public class MinusMinus extends Expr {
 
-    Expr cond;
-    Block b;
+    Var var;
 
-    public Loop(int priority) {
-        super(priority);
+    public MinusMinus(Var var) {
+        super(0);
+        this.var = var;
     }
 
     @Override
     int eval() throws UndefinedValueException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Memory.instance.store(var, var.eval() - 1);
+        return var.eval();
     }
 
 }

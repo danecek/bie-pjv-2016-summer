@@ -5,9 +5,6 @@
  */
 package expressions;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author danecek
@@ -17,17 +14,14 @@ public class Expressions {
     public static void main(String[] args) {
 
         try {
-            //        //Expr e = new MltOp('*', new AddOp('+', new Num(1), new Num(2)), new Num(3));
-//        Var v = new Var("v1");
-//        AssignOp e1 = new AssignOp(v, new Num(1));
-//        System.out.println(e1.eval());
-//        AssignOp e2 = new AssignOp(v, new Num(2));
-//        System.out.println(e2.eval());
-//        System.out.println(Memory.instance.load(v));
-//            Expr e3 = new AddOp('+', new Var("x"), new Num(0));
-            AssignOp e = new AssignOp(new Var("x"), new Num(3));
-            e.eval();
-            System.out.println(new Var("x").eval());
+            Var sum = new Var("sum");
+            new AssignOp(sum, new Num(0)).eval();
+
+            Var x = new Var("x");
+            new AssignOp(x, new Num(10)).eval();
+            While w = new While(new MinusMinus(x), new AssignOp(sum, new AddOp('+', x, sum)));
+            w.eval();
+            System.out.println(sum.eval());
 
 // TODO code application logic here
         } catch (UndefinedValueException ex) {
