@@ -11,13 +11,21 @@ package lexer;
  */
 public class Token {
 
+    private TokenEnum te;
+
     public Token(TokenEnum te) {
         this.te = te;
     }
-    TokenEnum te;
 
     @Override
     public String toString() {
         return "Token{" + "te=" + te + '}';
+    }
+
+    /**
+     * @return the te
+     */
+    public TokenEnum getTe() {
+        return te;
     }
 }

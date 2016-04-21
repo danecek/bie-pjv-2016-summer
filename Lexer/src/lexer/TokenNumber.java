@@ -11,7 +11,7 @@ package lexer;
  */
 public class TokenNumber extends Token {
 
-    int value;
+    private int value;
     
     public TokenNumber(int value) {
         super(TokenEnum.NUMBER);
@@ -21,6 +21,13 @@ public class TokenNumber extends Token {
     @Override
     public String toString() {
         return "TokenNumber{" + "value=" + value + '}';
+    }
+
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
     }
     
 }

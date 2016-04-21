@@ -61,6 +61,18 @@ public class Lexer extends Reader implements Iterator<Token> {
                         nextChar();
                         return new Token(TokenEnum.PLUS);
                     }
+                    case '-': {
+                        nextChar();
+                        return new Token(TokenEnum.MINUS);
+                    }
+                    case '*': {
+                        nextChar();
+                        return new Token(TokenEnum.MLT);
+                    }
+                    case '/': {
+                        nextChar();
+                        return new Token(TokenEnum.DIV);
+                    }
                     default:
                         throw new LexerException("invalid character");
                 }

@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lexer;
+package calculator;
 
 /**
  *
  * @author danecek
  */
-public enum TokenEnum {
-    WHILE,
-    PLUS,
-    MINUS,
-    LE,
-    NUMBER,
-    NAME, MLT, DIV
+class ParseExpression extends Exception {
+
+    public ParseExpression(String invalid_program) {
+        super(invalid_program);
+    }
     
 }
