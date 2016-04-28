@@ -25,28 +25,17 @@ public class Parser {
         l = new Lexer(program);
     }
 
-//    public int eval(Reader program) throws Exception {
-//
-//        int sum = 0;
-//        while (l.hasNext()) {
-//            Token t = l.next();
-//            if (t instanceof lexer.TokenNumber) {
-//                TokenNumber tn = (TokenNumber) t;
-//                sum += tn.getValue();
-//            }
-//        }
-//        return sum;
-//    }
-    private int number() throws ParseExpression {
+
+    private int number() throws ParseException {
         Token t = l.next();
         if (!(t instanceof lexer.TokenNumber)) {
-            throw new ParseExpression("number expected: " + t);
+            throw new ParseException("number expected: " + t);
         }
         TokenNumber tn = (TokenNumber) t;
         return tn.getValue();
     }
 
-    int term() throws ParseExpression {
+    int term() throws ParseException {
         int sum = number();
         while (l.hasNext()) {
             Token operator = l.next();
@@ -55,7 +44,7 @@ public class Parser {
             } else if (operator.getTe() == TokenEnum.MINUS) {
                 sum -= number();
             } else {
-                throw new ParseExpression("additive operator expected: " + operator);
+                throw new ParseException("additive operator expected: " + operator);
             }
 
         }

@@ -9,9 +9,9 @@ package calculator;
  *
  * @author danecek
  */
-class ParseExpression extends Exception {
+class ParseException extends Exception {
 
-    public ParseExpression(String invalid_program) {
+    public ParseException(String invalid_program) {
         super(invalid_program);
     }
     
