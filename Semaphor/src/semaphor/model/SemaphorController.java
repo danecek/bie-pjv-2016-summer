@@ -36,7 +36,9 @@ public class SemaphorController implements Runnable {
 
     @Override
     public void run() {
+            System.out.println("*******************************************");
         while (runFl) {
+            System.out.println("*******************************************");
             try {
                 Thread.sleep(1000);
                 semaphorModel.next();
